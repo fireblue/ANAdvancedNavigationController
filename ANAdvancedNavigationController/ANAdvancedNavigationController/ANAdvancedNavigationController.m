@@ -191,12 +191,15 @@ const CGFloat ANAdvancedNavigationControllerDefaultDraggingDistance         = 47
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
+    /*
     for (UIViewController *viewController in self.childViewControllers) {
         if (![viewController shouldAutorotateToInterfaceOrientation:interfaceOrientation]) {
             return NO;
         }
     }
 	return YES;
+     */
+    return interfaceOrientation == UIInterfaceOrientationLandscapeLeft|| interfaceOrientation == UIInterfaceOrientationLandscapeRight;
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {

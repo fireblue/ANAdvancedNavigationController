@@ -13,7 +13,8 @@
 
 - (CGFloat)__minimumDragOffsetToShowRemoveInformation {
     CGRect frame = self.removeRectangleIndicatorView.frame;
-    return CGRectGetWidth(frame) + frame.origin.x + ANAdvancedNavigationControllerDefaultViewControllerWidth/2.0f - 20.0f;
+    CGFloat width = self.advancedNavigationControllerWidth==0?ANAdvancedNavigationControllerDefaultViewControllerWidth:self.advancedNavigationControllerWidth;
+    return CGRectGetWidth(frame) + frame.origin.x + width/2.0f - 20.0f;
 }
 
 - (CGFloat)__leftBoundsPanningAnchor {
@@ -21,27 +22,39 @@
     if (self.viewControllers.count <= 1) {
         return -CGFLOAT_MAX;
     }
-    return ANAdvancedNavigationControllerDefaultLeftPanningOffset + ANAdvancedNavigationControllerDefaultViewControllerWidth/2.0f;
+    
+    CGFloat width = self.advancedNavigationControllerWidth==0?ANAdvancedNavigationControllerDefaultViewControllerWidth:self.advancedNavigationControllerWidth;
+    return ANAdvancedNavigationControllerDefaultLeftPanningOffset + width/2.0f;
 }
 
 - (CGFloat)__anchorPortraitLeft {
-    return ANAdvancedNavigationControllerDefaultLeftPanningOffset + ANAdvancedNavigationControllerDefaultViewControllerWidth/2.0f;
+    
+    CGFloat width = self.advancedNavigationControllerWidth==0?ANAdvancedNavigationControllerDefaultViewControllerWidth:self.advancedNavigationControllerWidth;
+    return ANAdvancedNavigationControllerDefaultLeftPanningOffset + width/2.0f;
 }
 
 - (CGFloat)__anchorPortraitRight {
-    return CGRectGetWidth(self.view.bounds) - ANAdvancedNavigationControllerDefaultViewControllerWidth/2.0f;
+    
+    CGFloat width = self.advancedNavigationControllerWidth==0?ANAdvancedNavigationControllerDefaultViewControllerWidth:self.advancedNavigationControllerWidth;
+    return CGRectGetWidth(self.view.bounds) - width/2.0f;
 }
 
 - (CGFloat)__anchorLandscapeLeft {
-    return ANAdvancedNavigationControllerDefaultLeftPanningOffset + ANAdvancedNavigationControllerDefaultViewControllerWidth/2.0f;
+    
+    CGFloat width = self.advancedNavigationControllerWidth==0?ANAdvancedNavigationControllerDefaultViewControllerWidth:self.advancedNavigationControllerWidth;
+    return ANAdvancedNavigationControllerDefaultLeftPanningOffset + width/2.0f;
 }
 
 - (CGFloat)__anchorLandscapeMiddle {
-    return ANAdvancedNavigationControllerDefaultLeftViewControllerWidth + ANAdvancedNavigationControllerDefaultViewControllerWidth/2.0f;
+    
+    CGFloat width = self.advancedNavigationControllerWidth==0?ANAdvancedNavigationControllerDefaultViewControllerWidth:self.advancedNavigationControllerWidth;
+    return ANAdvancedNavigationControllerDefaultLeftViewControllerWidth + width/2.0f;
 }
 
 - (CGFloat)__anchorLandscapeRight {
-    return CGRectGetWidth(self.view.bounds) - ANAdvancedNavigationControllerDefaultViewControllerWidth/2.0f;
+    
+    CGFloat width = self.advancedNavigationControllerWidth==0?ANAdvancedNavigationControllerDefaultViewControllerWidth:self.advancedNavigationControllerWidth;
+    return CGRectGetWidth(self.view.bounds) - width/2.0f;
 }
 
 - (CGFloat)__leftAnchorForInterfaceOrientation {
@@ -106,7 +119,8 @@
             }
             return CGPointMake(anchorPoint, CGRectGetHeight(self.view.bounds)/2.0f);
         } else {
-            return CGPointMake(self.__rightAnchorForInterfaceOrientation, CGRectGetHeight(self.view.bounds)/2.0f);
+            CGFloat width = rightViewController.advancedNavigationControllerWidth==0?ANAdvancedNavigationControllerDefaultViewControllerWidth:rightViewController.advancedNavigationControllerWidth;
+            return CGPointMake(CGRectGetWidth(self.view.bounds) - width/2.0f, CGRectGetHeight(self.view.bounds)/2.0f);
         }
     } else {
         if (UIDeviceOrientationIsLandscape(self.interfaceOrientation) && indexOfMostRightViewController == 0) {

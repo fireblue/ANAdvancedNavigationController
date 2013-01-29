@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UIViewController+AdvancedNavigationControllerWidth.h"
+
 extern const CGFloat ANAdvancedNavigationControllerDefaultLeftViewControllerWidth;
 extern const CGFloat ANAdvancedNavigationControllerDefaultViewControllerWidth;
 extern const CGFloat ANAdvancedNavigationControllerDefaultLeftPanningOffset;

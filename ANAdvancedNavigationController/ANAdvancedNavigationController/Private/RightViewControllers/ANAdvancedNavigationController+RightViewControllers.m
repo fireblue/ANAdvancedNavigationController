@@ -62,7 +62,7 @@
         [self.delegate advancedNavigationController:self willPushViewController:rootViewController afterViewController:nil animated:animated];
     }
     if (newView) {
-        newView.center = CGPointMake(CGRectGetWidth(self.view.bounds) + ANAdvancedNavigationControllerDefaultViewControllerWidth/2.0f, CGRectGetHeight(self.view.bounds)/2.0f);
+        newView.center = CGPointMake(CGRectGetWidth(self.view.bounds) + CGRectGetWidth(newView.bounds)/2.0f, CGRectGetHeight(self.view.bounds)/2.0f);
         [self.view addSubview:newView];
         CGPoint nextCenterPoint = [self __centerPointForRightViewController:rootViewController withIndexOfCurrentViewControllerAtRightAnchor:0];
         if (animated) {
@@ -122,7 +122,7 @@
     }
     if (newView) {
         [self.view addSubview:newView];
-        newView.center = CGPointMake(CGRectGetWidth(self.view.bounds)+ANAdvancedNavigationControllerDefaultViewControllerWidth/2.0f, CGRectGetHeight(self.view.bounds)/2.0f);
+        newView.center = CGPointMake(CGRectGetWidth(self.view.bounds)+CGRectGetWidth(newView.bounds)/2.0f, CGRectGetHeight(self.view.bounds)/2.0f);
         // now insert the new view into our view hirarchy
         if (animated) {
             [UIView animateWithDuration:ANAdvancedNavigationControllerDefaultAnimationDuration 
@@ -131,6 +131,7 @@
                                      UIView *view = [self __viewForRightViewController:obj];
                                      view.center = [self __centerPointForRightViewController:obj 
                                                withIndexOfCurrentViewControllerAtRightAnchor:self.viewControllers.count-1];
+                                     NSLog(@"%f, %f", view.center.x, view.center.y);
                                  }];
                              } 
                              completion:^(BOOL finished) {
@@ -176,7 +177,7 @@
         [UIView animateWithDuration:ANAdvancedNavigationControllerDefaultAnimationDuration 
                          animations:^(void) {
                              CGPoint center = view.center;
-                             center.x = CGRectGetWidth(self.view.bounds) + ANAdvancedNavigationControllerDefaultLeftViewControllerWidth;
+                             center.x = CGRectGetWidth(self.view.bounds) + CGRectGetWidth(rightViewController.view.bounds);
                              view.center = center;
                          } 
                          completion:^(BOOL finished) {
@@ -251,7 +252,10 @@
             return rightViewController.view.superview;
         }
     }
-    UIView *wrapperView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, ANAdvancedNavigationControllerDefaultViewControllerWidth, CGRectGetHeight(self.view.bounds))];
+    
+    CGFloat width = rightViewController.advancedNavigationControllerWidth==0?ANAdvancedNavigationControllerDefaultViewControllerWidth:rightViewController.advancedNavigationControllerWidth;
+    
+    UIView *wrapperView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, width, CGRectGetHeight(self.view.bounds))];
     wrapperView.backgroundColor = [UIColor blackColor];
     
     rightViewController.view.frame = wrapperView.bounds;

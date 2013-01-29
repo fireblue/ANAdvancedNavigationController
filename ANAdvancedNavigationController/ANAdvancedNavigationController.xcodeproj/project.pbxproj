@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6DA360E216B50FB100C7987A /* UIViewController+AdvancedNavigationControllerWidth.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DA360E016B50FB100C7987A /* UIViewController+AdvancedNavigationControllerWidth.h */; };
+		6DA360E316B50FB100C7987A /* UIViewController+AdvancedNavigationControllerWidth.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA360E116B50FB100C7987A /* UIViewController+AdvancedNavigationControllerWidth.m */; };
 		A7B6544513EA9143009E4414 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7B6544413EA9143009E4414 /* QuartzCore.framework */; };
 		A7C3773613EA8EF800B9943A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C3773513EA8EF800B9943A /* Foundation.framework */; };
 		A7C3775313EA8F2500B9943A /* ANAdvancedNavigationController-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = A7C3774213EA8F2500B9943A /* ANAdvancedNavigationController-Prefix.pch */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6DA360E016B50FB100C7987A /* UIViewController+AdvancedNavigationControllerWidth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AdvancedNavigationControllerWidth.h"; sourceTree = "<group>"; };
+		6DA360E116B50FB100C7987A /* UIViewController+AdvancedNavigationControllerWidth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AdvancedNavigationControllerWidth.m"; sourceTree = "<group>"; };
 		A7B6544413EA9143009E4414 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A7C3773213EA8EF800B9943A /* libANAdvancedNavigationController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libANAdvancedNavigationController.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C3773513EA8EF800B9943A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -97,6 +101,8 @@
 				A7C3774813EA8F2500B9943A /* ANRemoveRectangleIndicatorView.m */,
 				A7C3774913EA8F2500B9943A /* Private */,
 				A7C3773813EA8EF800B9943A /* Supporting Files */,
+				6DA360E016B50FB100C7987A /* UIViewController+AdvancedNavigationControllerWidth.h */,
+				6DA360E116B50FB100C7987A /* UIViewController+AdvancedNavigationControllerWidth.m */,
 			);
 			path = ANAdvancedNavigationController;
 			sourceTree = "<group>";
@@ -154,6 +160,7 @@
 				A7C3775B13EA8F2500B9943A /* ANAdvancedNavigationController+LeftViewController.h in Headers */,
 				A7C3775D13EA8F2500B9943A /* ANAdvancedNavigationController+RightViewControllers+Anchors.h in Headers */,
 				A7C3775F13EA8F2500B9943A /* ANAdvancedNavigationController+RightViewControllers.h in Headers */,
+				6DA360E216B50FB100C7987A /* UIViewController+AdvancedNavigationControllerWidth.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +221,7 @@
 				A7C3775C13EA8F2500B9943A /* ANAdvancedNavigationController+LeftViewController.m in Sources */,
 				A7C3775E13EA8F2500B9943A /* ANAdvancedNavigationController+RightViewControllers+Anchors.m in Sources */,
 				A7C3776013EA8F2500B9943A /* ANAdvancedNavigationController+RightViewControllers.m in Sources */,
+				6DA360E316B50FB100C7987A /* UIViewController+AdvancedNavigationControllerWidth.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
